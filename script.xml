@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<GeneticAlgorithmUtil>
+    <GA>
+		<PopulationSize>1000</PopulationSize>
+		<SpeciesCount>30</SpeciesCount>
+		<MaxParents>5</MaxParents>
+		<MutationPercent>0.2</MutationPercent>
+		<Model config="rbf=10">NetworkRBF</Model>
+		<ScoreGoal>min</ScoreGoal>
+	</GA>
+    <Files>
+	    <PopulationFile>population.ser</PopulationFile>
+		<TrainingFile>breast-cancer-wisconsin.xlsx</TrainingFile>
+		<EvaluationFile>breast-cancer-wisconsin-eval.xlsx</EvaluationFile>
+		<EvaluationOutputFile>output.xlsx</EvaluationOutputFile>
+	</Files>
+	<DataFileFormat>
+		<PredictField>class</PredictField>
+		<Normalize min="0" max="1"/>
+		<Fields>
+			<Field name="id" action="ignore"/>
+			<Field name="clump_thickness" action="norm"/>
+			<Field name="size_uniformity" action="norm"/>
+			<Field name="shape_uniformity" action="norm"/>
+			<Field name="marginal_adhesion" action="norm"/>
+			<Field name="epithelial_size" action="norm"/>
+			<Field name="bare_nucleoli" action="norm"/>
+			<Field name="bland_chromatin" action="norm"/>
+			<Field name="normal_nucleoli" action="norm"/>
+			<Field name="mitoses" action="norm"/>
+			<Field name="class" action="class"/>
+		</Fields>
+	</DataFileFormat>
+</GeneticAlgorithmUtil>
